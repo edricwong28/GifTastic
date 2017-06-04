@@ -71,7 +71,7 @@
 
             foodImage.addClass(".foodGif");
             // Giving the image tag an src attribute of a proprty pulled off the result item
-            foodImage.attr("src", results[i].images.fixed_height.url);
+            foodImage.attr("src", results[i].images.fixed_height_still.url);
             // Appending the paragraph and personImage we created to the "gifDiv" div we created
             gifDiv.prepend(p);
             gifDiv.prepend(foodImage);
@@ -83,22 +83,6 @@
       }); 
 
     }    
-
-      // // Function for displaying movie data
-      // function renderButtons() {
-
-      //   // Deletes the movies prior to adding new movies
-      //   // (this is necessary otherwise you will have repeat buttons)
-      //   $("#buttons-view").empty();
-
-      //   // Loops through the array of movies
-      //   for (var i = 0; i < foods.length; i++) {
-
-      //     // Then dynamicaly generates buttons for each movie in the array
-      //     // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
-       
-      //   }
-      // }
 
       // This function handles events where the add food button is clicked
       $("#add-food").on("click", function(event) {
@@ -125,10 +109,7 @@
       });
 
       $(".foodGif").on("click", function(event) {
-        event.preventDefault();
         
-
-
       });
 
       // Adding click event listeners to all elements with a class of "movie"
