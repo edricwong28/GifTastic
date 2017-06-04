@@ -67,8 +67,8 @@
 
             foodImage.addClass("foodGif");
             // Giving the image tag an src attribute of a proprty pulled off the result item
-            foodImage.attr("src", results[i].images.fixed_height.url);
-            foodImage.attr("still-image", results[i].images.fixed_height_still.url );
+            foodImage.attr("src", results[i].images.fixed_height_still.url);
+            foodImage.attr("moving-image", results[i].images.fixed_height.url );
             // Appending the paragraph and personImage we created to the "gifDiv" div we created
             gifDiv.prepend(p);
             gifDiv.prepend(foodImage);
@@ -102,8 +102,8 @@
        // $(document).ready(function(){
        $('body').on('click', "img", function(event) {
 
-        var stillImage = $(this).attr("still-image");
-        $(this).attr("src", stillImage);
+        var movingImage = $(this).attr("moving-image");
+        $(this).attr("src", movingImage);
         console.log("here")
       // });
   });
