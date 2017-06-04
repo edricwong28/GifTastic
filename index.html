@@ -61,7 +61,7 @@
 
             if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
             // Creating a div with the class "item"
-            var gifDiv = $("<div class='food'>");
+            var gifDiv = $("<div class='foodGifDiv'>");
             // Storing the result item's rating
             var rating = results[i].rating;
             // Creating a paragraph tag with the result item's rating
@@ -69,14 +69,15 @@
             // Creating an image tag
             var foodImage = $("<img>");
 
-            foodImage.addClass(".foodGif");
+            foodImage.addClass("foodGif");
             // Giving the image tag an src attribute of a proprty pulled off the result item
-            foodImage.attr("src", results[i].images.fixed_height_still.url);
+            foodImage.attr("src", results[i].images.fixed_height.url);
+            foodImage.attr("still-image", results[i].images.fixed_height_still.url );
             // Appending the paragraph and personImage we created to the "gifDiv" div we created
             gifDiv.prepend(p);
             gifDiv.prepend(foodImage);
             // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-              $("#gifs-appear-here").prepend(gifDiv);
+              // $("#gifs-appear-here").prepend(gifDiv);
             $("#gifs-appear-here").prepend(gifDiv);
           }
         }
@@ -98,25 +99,22 @@
           // Added a data-attribute
           a.attr("data-food", food);
           // Provided the initial button text
-          // log foods[i]
           a.text(food);
           // Added the button to the buttons-view div
           $("#buttons-view").append(a);
-
-        // Calling renderButtons which handles the processing of our movie array
-        //renderButtons();
-
       });
+       // $(document).ready(function(){
+       $('body').on('click', "img", function(event) {
 
-      $(".foodGif").on("click", function(event) {
-        
-      });
+        var stillImage = $(this).attr("still-image");
+        $(this).attr("src", stillImage);
+        console.log("here")
+      // });
+  });
+      
 
-      // Adding click event listeners to all elements with a class of "movie"
       $(document).on("click", ".food", displayFoodInfo);
-
-      // Calling the renderButtons function to display the intial buttons
-      renderButtons();
+      // renderButtons();
     </script>
   </div>
 </body>
