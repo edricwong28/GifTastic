@@ -8,7 +8,7 @@
         var food = $(this).attr("data-food");
         
           $.ajax({
-          url: "http://api.giphy.com/v1/gifs/search?q=" +
+          url: "https://api.giphy.com/v1/gifs/search?q=" +
             food + "&api_key=dc6zaTOxFJmzC&limit=10",
           method: "GET"
         })
@@ -33,6 +33,7 @@
             // Giving the image tag an src attribute of a proprty pulled off the result item
             foodImage.attr("src", results[i].images.fixed_height_still.url);
             foodImage.attr("moving-image", results[i].images.fixed_height.url );
+            foodImage.attr("still-image", results[i].images.fixed_height_still.url);
             // Appending the paragraph and personImage we created to the "gifDiv" div we created
             gifDiv.prepend(p);
             gifDiv.prepend(foodImage);
@@ -68,8 +69,8 @@
 
         var movingImage = $(this).attr("moving-image");
         $(this).attr("src", movingImage);
-        console.log("here")
-      // });
+        console.log("click")
+    
   });
       
 
