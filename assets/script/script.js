@@ -55,7 +55,7 @@
         // The movie from the textbox is then added to our array
         //log
           var a = $("<button>");
-          // Adds a class of movie to our button
+          // Adds a class of food to our button
           a.addClass("food");
           // Added a data-attribute
           a.attr("data-food", food);
